@@ -82,6 +82,7 @@ namespace e_Agenda.WebApp.Controllers
                     registroSelecionado.Titulo,
                     registroSelecionado.Prioridade
                 );
+
             return View(editarVM);
         }
 
@@ -149,6 +150,7 @@ namespace e_Agenda.WebApp.Controllers
             return RedirectToAction(nameof(Index));
         }
 
+
         [HttpGet, Route("/tarefas/{id:guid}/gerenciar-itens")]
         public IActionResult GerenciarItens(Guid id)
         {
@@ -158,10 +160,11 @@ namespace e_Agenda.WebApp.Controllers
                 return RedirectToAction(nameof(Index));
 
             var gerenciarItensViewModel = new GerenciarItensTarefaViewModel(tarefaSelecionada);
-            
+
 
             return View(gerenciarItensViewModel);
         }
+
 
         [HttpPost, Route("/tarefas/{id:guid}/adicionar-item")]
         public IActionResult AdicionarItem(Guid id, string tituloItem)
@@ -207,9 +210,9 @@ namespace e_Agenda.WebApp.Controllers
 
 
         [HttpPost, Route("/tarefas/{idTarefa:guid}/remover-item/{idItem:guid}")]
-        public IActionResult RemoverItem(Guid id, Guid idItem)
+        public IActionResult RemoverItem(Guid idTarefa, Guid idItem)
         {
-            var tarefaSelecionada = repositorioTarefa.SelecionarTarefaPorId(id);
+            var tarefaSelecionada = repositorioTarefa.SelecionarTarefaPorId(idTarefa);
 
             if(tarefaSelecionada is null)
                 return RedirectToAction(nameof(Index));

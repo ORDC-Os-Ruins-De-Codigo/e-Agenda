@@ -4,7 +4,7 @@ using e_Agenda.Infraestrutura.Arquivos.ModuloCompromisso;
 using e_Agenda.WebApp.Extensions;
 using e_Agenda.WebApp.Models;
 using Microsoft.AspNetCore.Mvc;
-using System.Reflection;
+
 
 namespace e_Agenda.WebApp.Controllers;
 

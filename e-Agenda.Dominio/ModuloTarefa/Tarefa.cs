@@ -39,7 +39,7 @@ namespace e_Agenda.Dominio.ModuloTarefa
             Itens = new List<ItemTarefa>();
         }
 
-        public Tarefa(string titulo, PrioridadeTarefa prioridade)
+        public Tarefa(string titulo, PrioridadeTarefa prioridade) : this()
         {
             Id = Guid.NewGuid();
             Titulo = titulo;
